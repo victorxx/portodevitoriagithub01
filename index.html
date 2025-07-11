@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Últimas notícias sobre o Porto de Vitória, Espírito Santo. Acompanhe atualizações e novidades sobre o desenvolvimento do porto e o setor logístico.">
+    <meta name="keywords" content="Porto de Vitória, notícias, Espírito Santo, transporte, logística, comércio exterior">
+    <meta name="author" content="Seu Nome">
+    <title>Notícias Porto de Vitória</title>
+
+    <style>
+        /* Estilos básicos da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a3d66;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Estilos para as propagandas fixas e deslizantes */
+        .advertisement {
+            position: fixed;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: #ffcc00;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1000;
+            transition: top 0.3s ease-in-out;
+        }
+
+        /* Propaganda superior - fixa no topo */
+        .advertisement.top {
+            top: 0;
+        }
+
+        /* Propaganda inferior - fixa no rodapé */
+        .advertisement.bottom {
+            bottom: 0;
+        }
+
+        .advertisement a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .advertisement a:hover {
+            text-decoration: underline;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Para não sobrepor a propaganda superior */
+            margin-bottom: 80px; /* Para não sobrepor a propaganda inferior */
+        }
+
+        .news-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item h3 {
+            color: #2a3d66;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2a3d66;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .extra-info {
+            font-size: 1.1em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .extra-info p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Propaganda no topo da página (deslizante fixa no topo) -->
+    <div class="advertisement top">
+        <a href="https://www.exemplo.com" target="_blank" id="ok">Confira essa oportunidade unica - Clique aqui</a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Notícias sobre o Porto de Vitória</h1>
+    </header>
+
+    <!-- Container de Notícias -->
+    <div class="news-container">
+        <div id="news-list"></div>
+    </div>
+
+    <!-- Informações extras -->
+    <div class="extra-info">
+        <p><strong>Últimos números e caracteres:</strong></p>
+        <p id="special-info"></p>
+    </div>
+
+    <!-- Propaganda no rodapé (deslizante fixa no rodapé) -->
+    <div class="advertisement bottom">
+        <a href="https://victorxx.github.io/topicogithub01/randomizador.html" target="_blank">Confira essa oportunidade - Clique aqui</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Notícias Porto de Vitória | Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script JavaScript para exibir as notícias -->
+    <script>
+        // Array de notícias sobre o Porto de Vitória
+        const noticias = [
+            {
+                titulo: "Porto de Vitória expande operações logísticas",
+                descricao: "O Porto de Vitória tem expandido suas operações para atender ao aumento da demanda de exportação de minério e outros produtos. Investimentos em infraestrutura estão sendo feitos para melhorar o escoamento da carga.",
+                data: "10 de julho de 2025"
+            },
+            {
+                titulo: "Investimentos em sustentabilidade no Porto de Vitória",
+                descricao: "Em 2025, o Porto de Vitória lançou um novo projeto de sustentabilidade, visando reduzir a emissão de gases poluentes e melhorar a gestão de resíduos nas operações.",
+                data: "15 de junho de 2025"
+            },
+            {
+                titulo: "Porto de Vitória registra recorde de movimentação",
+                descricao: "Com o crescimento do comércio exterior, o Porto de Vitória atingiu um novo recorde de movimentação de cargas, destacando-se como um dos principais portos do Brasil.",
+                data: "05 de maio de 2025"
+            },
+               {
+                    "titulo": "Porto de Vitória registra recorde de movimentação",
+                    "descricao": "Com o crescimento do comércio exterior, o Porto de Vitória atingiu um novo recorde de movimentação de cargas, destacando-se como um dos principais portos do Brasil.",
+                    "data": "05 de maio de 2025"
+                },
+                {
+                    "titulo": "Mercado de tecnologia em alta no Brasil",
+                    "descricao": "O setor de tecnologia brasileiro apresentou um crescimento expressivo, com startups inovadoras ganhando destaque no cenário internacional.",
+                    "data": "10 de maio de 2025"
+                },
+                {
+                    "titulo": "Aeroporto de São Paulo recebe novo terminal",
+                    "descricao": "O Aeroporto de São Paulo inaugura um novo terminal, prometendo melhorar a experiência dos passageiros e aumentar a capacidade de operação.",
+                    "data": "12 de maio de 2025"
+                },
+                {
+                    "titulo": "Setor imobiliário experimenta crescimento",
+                    "descricao": "O mercado imobiliário no Brasil registrou alta nas vendas de imóveis de luxo, impulsionado pela estabilidade econômica.",
+                    "data": "15 de maio de 2025"
+                },
+                {
+                    "titulo": "Brasil registra queda no desemprego",
+                    "descricao": "A taxa de desemprego no Brasil apresentou uma redução significativa, refletindo a recuperação econômica do país após a crise pandêmica.",
+                    "data": "20 de maio de 2025"
+                },
+                {
+                    "titulo": "Expansão do agronegócio impulsiona exportações",
+                    "descricao": "O agronegócio brasileiro continua a expandir suas exportações, com destaque para a produção de soja e carne bovina.",
+                    "data": "22 de maio de 2025"
+                },
+                {
+                    "titulo": "São Paulo recebe evento internacional de moda",
+                    "descricao": "São Paulo se torna palco de um evento internacional de moda, reunindo grandes estilistas e influenciadores do setor.",
+                    "data": "25 de maio de 2025"
+                },
+                {
+                    "titulo": "Brasil investe em energia renovável",
+                    "descricao": "O governo brasileiro anunciou novos investimentos em energia solar e eólica, visando aumentar a matriz energética limpa do país.",
+                    "data": "30 de maio de 2025"
+                },
+                {
+                    "titulo": "Sustentabilidade ganha força no mercado brasileiro",
+                    "descricao": "Empresas brasileiras adotam práticas mais sustentáveis, com destaque para o uso de materiais recicláveis e redução de desperdícios.",
+                    "data": "02 de junho de 2025"
+                },
+                {
+                    "titulo": "Governo anuncia plano de incentivo ao turismo",
+                    "descricao": "O governo federal revelou um plano de incentivos para o setor de turismo, com foco na recuperação das atividades após a pandemia.",
+                    "data": "05 de junho de 2025"
+                },
+                {
+                    "titulo": "Brasil firma acordo comercial com a União Europeia",
+                    "descricao": "O Brasil firmou um acordo comercial de longo prazo com a União Europeia, abrindo novas portas para o mercado de exportação.",
+                    "data": "07 de junho de 2025"
+                },
+                {
+                    "titulo": "Novos investimentos em infraestrutura no Rio de Janeiro",
+                    "descricao": "O governo do estado do Rio de Janeiro anunciou um pacote de investimentos em infraestrutura, visando melhorar o transporte público e a qualidade de vida.",
+                    "data": "10 de junho de 2025"
+                },
+                {
+                    "titulo": "Saúde mental em foco nas políticas públicas",
+                    "descricao": "A saúde mental tem ganhado destaque nas políticas públicas brasileiras, com investimentos em programas de prevenção e tratamento.",
+                    "data": "12 de junho de 2025"
+                },
+                {
+                    "titulo": "Mercado de energias alternativas cresce no Brasil",
+                    "descricao": "O Brasil registra crescimento no mercado de energias alternativas, com destaque para a energia solar, que se torna cada vez mais acessível para residências e empresas.",
+                    "data": "15 de junho de 2025"
+                },
+                {
+                    "titulo": "Reforma tributária gera expectativas no Brasil",
+                    "descricao": "A proposta de reforma tributária do governo brasileiro gera expectativas no mercado, prometendo simplificar o sistema e reduzir a carga tributária para empresas.",
+                    "data": "17 de junho de 2025"
+                },
+                {
+                    "titulo": "Brasil bate recorde de produção agrícola",
+                    "descricao": "O Brasil alcançou um novo recorde de produção agrícola, consolidando-se como um dos maiores produtores de alimentos do mundo.",
+                    "data": "20 de junho de 2025"
+                },
+                {
+                    "titulo": "Inovações tecnológicas no setor automotivo brasileiro",
+                    "descricao": "O setor automotivo brasileiro está adotando novas inovações tecnológicas, incluindo veículos elétricos e modelos autônomos.",
+                    "data": "23 de junho de 2025"
+                },
+                {
+                    "titulo": "Crescimento do mercado de moda sustentável",
+                    "descricao": "O mercado de moda sustentável no Brasil tem mostrado crescimento, com marcas cada vez mais adotando práticas éticas e ecológicas.",
+                    "data": "25 de junho de 2025"
+                },
+                {
+                    "titulo": "Brasil registra avanço na educação digital",
+                    "descricao": "A educação digital no Brasil registrou avanços significativos, com escolas adotando tecnologias para facilitar o aprendizado remoto.",
+                    "data": "28 de junho de 2025"
+                },
+        ];
+
+        // Função para gerar as notícias na página
+        function exibirNoticias() {
+            const newsListContainer = document.getElementById('news-list');
+            noticias.forEach((noticia) => {
+                const noticiaItem = document.createElement('div');
+                noticiaItem.classList.add('news-item');
+                noticiaItem.innerHTML = `
+                    <h3>${noticia.titulo}</h3>
+                    <p><em>${noticia.data}</em></p>
+                    <p>${noticia.descricao}</p>
+                `;
+                newsListContainer.appendChild(noticiaItem);
+            });
+        }
+
+        // Função para gerar números e caracteres especiais
+        function exibirInfoEspecifica() {
+            const infoContainer = document.getElementById('special-info');
+            const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+            const letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+            const caracteresEspeciais = ['@', '#', '$', '%', '&', '*', '!', '?'];
+
+            // Exibe números, letras e caracteres especiais
+            infoContainer.innerHTML = `
+                <p>Números: ${numeros.join(', ')}</p>
+                <p>Letras: ${letras.join(', ')}</p>
+                <p>Caracteres Especiais: ${caracteresEspeciais.join(' ')}</p>
+            `;
+        }
+
+        // Chama as funções para exibir as notícias e as informações extras
+        exibirNoticias();
+        exibirInfoEspecifica();
+    </script>
+  <script>
+    function randomizar(){
+      const links=[
+          "https://victorxx.github.io/laudobancariogithub/",
+          "https://victorxx.github.io/redirecionando01001/",
+          "https://victorxx.github.io/GUARAPARIGITHUB01/",
+          "https://victorxx.github.io/airbnbrandom01/",
+          "https://victorxx.github.io/vpsvendagihubrandom01/",
+          "https://victorxx.github.io/sonygithubrandom01/",
+          "https://victorxx.github.io/erpgithubrnadom01/"
+      
+      ];
+       function misturar(arr){
+        return Math.floor(Math.random()* arr.length);
+       }
+       const mudei=misturar(links);
+       const mudando=links[mudei];
+       document.getElementById('ok').href=mudando;
+
+    }
+    setInterval(randomizar,500);
+  </script>
+</body>
+</html>
